@@ -1,8 +1,6 @@
 package Container;
 
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Stack;
+import java.util.*;
 
 public class StackAndQueue {
     // 225. 用队列实现栈 用一个队列就可以！
@@ -108,7 +106,58 @@ public class StackAndQueue {
 
     // 239. 滑动窗口最大值  单调队列，与窗口相关
     public int[] maxSlidingWindow(int[] nums, int k) {
-        
+        LinkedList<Integer> queue = new LinkedList<>();
+        int n = nums.length;
+        int[] res = new int[n-k+1];
+        int j = 0;
+        for (int i=0; i<n; i++) {
+            while (!queue.isEmpty() && queue.getLast() < nums[i]) {
+                queue.removeLast();
+            }
+            queue.add(nums[i]);
+            if (i - j >= k) {
+                if (queue.getFirst() == nums[j]) {
+                    queue.removeFirst();
+                }
+                j++;
+
+            }
+            if (i - j == k-1) {
+                res[i-k+1] = queue.getFirst();
+            }
+            else {
+                continue;
+            }
+        }
+        return res;
+    }
+
+    // 347. 前 K 个高频元素
+    public int[] topKFrequent(int[] nums, int k) {
+        int[] res = new int[k];
+        int n = nums.length;
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for (int num:nums) {
+            map.put(num, map.getOrDefault(num, 0)+1);
+        }
+        PriorityQueue<int[]> pq = new PriorityQueue<>(new Comparator<int[]>() {
+            @Override
+            public int compare(int[] o1, int[] o2) {
+                return o1[1]==o2[1] ? o1[0]-o2[0] : o1[1]-o2[1];
+            }
+        });
+        for (int i:map.keySet()) {
+            pq.add(new int[]{i, map.get(i)});
+            if (pq.size() > k) {
+                pq.poll();
+            }
+        }
+        int i=0;
+        while (!pq.isEmpty()) {
+            res[i] = pq.poll()[0];
+            i++;
+        }
+        return res;
     }
 
     public static void main(String[] args) {
