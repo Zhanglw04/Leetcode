@@ -122,5 +122,8 @@ public class Weekly291 {
 
         int[] nums = new int[] {10,2,17,7,20};
         System.out.println(pp.countDistinct(nums, 1, 10));
+
+        String s = "222222222222222222222222222222222222";
+        System.out.println(s.length());
     }
 }

@@ -23,9 +23,6 @@ public class Scene extends JFrame {
     private final Font f2 = new Font("Times New Roman", Font.PLAIN, 12);
     private JRadioButtonMenuItem[] modeItems;
     private JRadioButtonMenuItem[] speedItems;
-//    private JRadioButtonMenuItem[] headItems;
-//    private JRadioButtonMenuItem[] bodyItems;
-//    private JLabel backgroundLabel;
     private JPanel paintPanel;
     private final JLabel label1 = new JLabel("Length: ");
     private final JLabel label2 = new JLabel("Time: ");
@@ -74,7 +71,6 @@ public class Scene extends JFrame {
         2: player snake and AI snake
      */
     public boolean debug = false;
-    public Vector<Position> aiBody = new Vector<>();
     public Vector<Position> food_history = new Vector<>();
     public Data newDatabase = new Data();
 
@@ -95,13 +91,10 @@ public class Scene extends JFrame {
         Settings.setFont(f);
         JMenu Help = new JMenu("Help");
         Help.setFont(f);
-//        JMenu About = new JMenu("About");
-//        About.setFont(f);
         JMenu Record = new JMenu("Record");
         Record.setFont(f);
         bar.add(Settings);
         bar.add(Help);
-//        bar.add(About);
         bar.add(Record);
 
         JMenu changeMode = new JMenu("Game Mode");
@@ -132,9 +125,6 @@ public class Scene extends JFrame {
         Record.add(bestRecord);
         Record.add(recentRecord);
 
-//        JMenuItem about = new JMenuItem("About...");
-//        about.setFont(f2);
-//        About.add(about);
         initWalls();
 
         this.addKeyListener(new MyKeyListener());
@@ -216,7 +206,6 @@ public class Scene extends JFrame {
         }
         speedItems[2].setSelected(true);
 
-//        about.addActionListener(e -> new About());
         help.addActionListener(e -> new Help());
 
         Record r1 = new Record();
@@ -231,7 +220,7 @@ public class Scene extends JFrame {
         remove(AILength);remove(length);remove(score);remove(time);remove(Amount);remove(p);
 
         int info_x = padding*3 + gameMap[0].length*pixelPerUnit;
-        if(gameMode == 0){//player snake
+        if(gameMode == 0){  //player snake
             add(label1);label1.setBounds(info_x, 10, 80, 20);label1.setFont(f);
             add(length);length.setBounds(info_x, 35, 80, 20);length.setFont(f);
             add(label2);label2.setBounds(info_x, 70, 80, 20);label2.setFont(f);
@@ -240,7 +229,7 @@ public class Scene extends JFrame {
             add(score);score.setBounds(info_x, 155, 80, 20);score.setFont(f);
             add(label5);label5.setBounds(info_x, 190, 80, 20);label5.setFont(f);
             add(Amount);Amount.setBounds(info_x, 215, 80, 20);Amount.setFont(f);
-        }else if(gameMode == 1){//ai snake
+        }else if(gameMode == 1){    //ai snake
             add(label4);label4.setBounds(info_x, 10, 80, 20);label4.setFont(f);
             add(AILength);AILength.setBounds(info_x, 35, 80, 20);AILength.setFont(f);
             add(label2);label2.setBounds(info_x, 70, 80, 20);label2.setFont(f);
@@ -301,7 +290,6 @@ public class Scene extends JFrame {
         JPanel imagePanel = (JPanel) this.getContentPane();
         imagePanel.setOpaque(false);
         paintPanel = new JPanel(){
-            //绘制界面的函数
             public void paint(Graphics g1){
                 super.paint(g1);
                 Graphics2D g = (Graphics2D) g1;
@@ -365,8 +353,6 @@ public class Scene extends JFrame {
         quit = true;
         resetLabel();
         speedItems[2].setSelected(true);
-//        headItems[0].setSelected(true);
-//        bodyItems[0].setSelected(true);
 
         food.removeAll();
         food = null;
@@ -407,8 +393,6 @@ public class Scene extends JFrame {
         quit = true;
         resetLabel();
         speedItems[2].setSelected(true);
-//        headItems[0].setSelected(true);
-//        bodyItems[0].setSelected(true);
         food.removeAll();
         food = null;
         food = new FoodSet(this);

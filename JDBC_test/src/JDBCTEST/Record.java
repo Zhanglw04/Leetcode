@@ -2,6 +2,7 @@ package JDBCTEST;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Vector;
 
@@ -100,5 +101,7 @@ public class Record extends JDialog {
         SnakeTest st = new SnakeTest();
         Vector<Vector<String>> v = st.getNewRecord(10);
         Record r = new Record(v);
+        HashMap<String, Integer> map = new HashMap<>();
+
     }
 }

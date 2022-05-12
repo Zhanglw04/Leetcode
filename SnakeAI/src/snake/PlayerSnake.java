@@ -17,12 +17,7 @@ public class PlayerSnake {
     private int defaultSpeed = 300;
     private Deque<Body> body = new LinkedList<>();
     private int point = 0;
-//    private int bulletNumber = 5;
 
-//    private ImageIcon[] headIcon = new ImageIcon[4];
-//    private int headIconTag = 0;
-//    private ImageIcon[] bodyIcon = new ImageIcon[4];
-//    private int bodyIconTag = 0;
     private final ImageIcon headIcon;
     private final ImageIcon bodyIcon;
     private ScheduledExecutorService executor;
@@ -62,13 +57,11 @@ public class PlayerSnake {
         if(point1 == -1) {
             return false;
         } else {
-//            new Music("music//eat.wav").start();
             point += point1;
 
             gameUI.removeFood(new Position(coordinate.getX(), coordinate.getY()));
             gameUI.updateInfos("Score", "" + point);
             gameUI.updateInfos("Length", "" + body.size());
-//            gameUI.updateInfos("Amount", "" + gameUI.getAllFoodCoor().size());
             gameUI.setMap(coordinate.getX(), coordinate.getY(), 1);
             return true;
         }
@@ -92,7 +85,6 @@ public class PlayerSnake {
         }
 
         if(checkDeath(nextCoordinate)) {
-//            new Music("music//over.wav").start();
             gameUI.quit = true;
             gameUI.pause = true;
             gameUI.die = true;

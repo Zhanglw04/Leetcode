@@ -19,24 +19,12 @@ public class Body {
         label = new JLabel(icon);
     }
 
-    public Body(Body tempBody) {
-        coor = tempBody.coor;
-        label = tempBody.label;
-    }
-
     public Position getCoordinate() {
         return coor;
-    }
-
-    public void setCoordinate(Position coordinate) {
-        this.coor = coordinate;
     }
 
     public JLabel getLabel() {
         return label;
     }
 
-    public void setLabel(JLabel label) {
-        this.label = label;
-    }
 }

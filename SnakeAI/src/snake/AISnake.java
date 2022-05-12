@@ -75,14 +75,10 @@ public class AISnake {
 
         if(allPath.isEmpty()) {
             if(!moveToTail()) {
-//                gameUI.updateInfos("Status", "die");
                 System.out.println("unable to find path");
                 show();
                 gameUI.repaint();
                 goDie();
-            }
-            else {
-//                gameUI.updateInfos("Status", "go");
             }
         }
         else {
@@ -94,7 +90,6 @@ public class AISnake {
                 if (attemptMove(head, goal, pathToGoal)) {
                     Position next = pathToGoal.get(1);
                     moveOneStep(next);
-//                    gameUI.updateInfos("Status", "to eat");
                     return;
                 }
             }
@@ -104,8 +99,6 @@ public class AISnake {
                 show();
                 gameUI.repaint();
                 goDie();
-            }else {
-//                gameUI.updateInfos("Status", "go");
             }
         }
     }
@@ -395,5 +388,7 @@ class path{
         this.cost = cost;
     }
 
-    int compare(path p2){return Double.compare(this.cost, p2.cost);}
+    int compare(path p2) {
+        return Double.compare(this.cost, p2.cost);
+    }
 }

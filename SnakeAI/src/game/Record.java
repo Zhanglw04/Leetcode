@@ -47,7 +47,6 @@ public class Record extends JDialog {
         columnName.add("AI Length");
         columnName.add("Food Amount");
         rowData = new Vector();
-        String before;
         for (int i = 0; i < recordings.size(); i++) {
             Vector line = new Vector();
             line.add(i + 1);
@@ -64,7 +63,6 @@ public class Record extends JDialog {
         FitTableColumns(jt);
         makeFace(jt);
         jt.setRowHeight(35);
-//        jt.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 
         scroll = new JScrollPane(jt, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         scroll.setBorder(BorderFactory.createTitledBorder("10 Best scores"));
@@ -72,7 +70,6 @@ public class Record extends JDialog {
         scroll.getViewport().setOpaque(false);
         shadePanel.add(scroll);
         scroll.setBounds(20, 10, 800, 410);
-//        setEnabled(false);
         setResizable(false);
         setVisible(true);
     }
@@ -107,7 +104,6 @@ public class Record extends JDialog {
         columnName.add("AI Length");
         columnName.add("Food Amount");
         rowData = new Vector();
-        String before;
         for (int i = 0; i < recordings.size(); i++) {
             Vector line = new Vector();
             line.add(i + 1);
@@ -131,7 +127,6 @@ public class Record extends JDialog {
         scroll.getViewport().setOpaque(false);
         shadePanel.add(scroll);
         scroll.setBounds(20, 10, 800, 410);
-//        setEnabled(false);
         setResizable(false);
         setVisible(true);
     }
@@ -163,7 +158,7 @@ public class Record extends JDialog {
                                 row, col).getPreferredSize().getWidth();
                 width = Math.max(width, preferedWidth);
             }
-            header.setResizingColumn(column); // 此行很重要
+            header.setResizingColumn(column);
             column.setWidth(width + myTable.getIntercellSpacing().width + 10);
         }
     }
