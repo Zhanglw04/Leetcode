@@ -8,7 +8,7 @@ public class Data {
 
     // MySQL 8.0 or later - JDBC driver name and database URL, the configuration depends on the mysql version.
     private String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
-    private String dbUrl1 = "jdbc:mysql://localhost:3306?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
+    private String dbUrl1 = "jdbc:mysql://localhost:3306?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/New_York";
     /*
         MySQL 8.0 or earlier - JDBC driver name and database URL
         static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
@@ -22,7 +22,7 @@ public class Data {
     private boolean resultTable = false;
     private String databaseName = "SnakeGame";
     private String tableName = "ScoreTable";
-    private String dbUrl2 = "jdbc:mysql://localhost:3306/" + databaseName + "?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
+    private String dbUrl2 = "jdbc:mysql://localhost:3306/" + databaseName + "?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/New_York";
 
     public boolean isResultTable() {
         return resultTable;
